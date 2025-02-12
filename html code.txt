@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Fitness App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        .nav-link {
+            color: #337ab7;
+        }
+        .nav-link:hover {
+            color: #23527c;
+        }
+        .card {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Health and Fitness App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#exercises">Exercises <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#workouts">Workouts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#progress">Progress</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row" id="exercises">
+            <h2>Exercises</h2>
+            <input type="text" id="search" placeholder="Search exercises">
+            <div class="row" id="exercise-list">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" alt="Exercise image">
+                    <div class="card-body">
+                        <h5 class="card-title">Exercise 1</h5>
+                        <p class="card-text">Description of exercise 1</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exerciseModal">View Details</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" alt="Exercise image">
+                    <div class="card-body">
+                        <h5 class="card-title">Exercise 2</h5>
+                        <p class="card-text">Description of exercise 2</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exerciseModal">View Details</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/150" alt="Exercise image">
+                    <div class="card-body">
+                        <h5 class="card-title">Exercise 3</h5>
+                        <p class="card-text">Description of exercise 3</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exerciseModal">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="workouts">
+            <h2>Workouts</h2>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#workoutModal">Log Workout</button>
+        </div>
+        <div class="row" id="progress">
+            <h2>Progress</h2>
+            <canvas id="progressChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+    <div class="modal fade" id="exerciseModal" tabindex="-1" role="dialog" aria-labelledby="exerciseModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exerciseModalLabel">Exercise Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Exercise Name</h5>
+                    <p>Description of exercise</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="workoutModal" tabindex="-1" role="dialog" aria-labelledby="workoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="workoutModalLabel">Log Workout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="workoutName">Workout Name</label>
+                            <input type="text" class="form-control" id="workoutName" placeholder="Enter workout name">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutDate">Workout Date</label>
+                            <input type="date" class="form-control" id="workoutDate" placeholder="Enter workout date">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutTime">Workout Time</label>
+                            <input type="time" class="form-control" id="workoutTime" placeholder="Enter workout time">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log Workout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search').on('input', function() {
+                var search = $(this).val().toLowerCase();
+                $('#exercise-list .card').each(function() {
+                    var text = $(this).find('.card-title').text().toLowerCase();
+                    if (text.indexOf(search) === -1) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+            var ctx = document.getElementById('progressChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Progress',
+                        data: [10, 20, 30, 40],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
